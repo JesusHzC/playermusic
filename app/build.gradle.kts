@@ -1,6 +1,8 @@
 plugins {
     id ("com.android.application")
     id ("org.jetbrains.kotlin.android")
+    kotlin("kapt")
+    id("com.google.dagger.hilt.android")
 }
 
 android {
@@ -49,7 +51,7 @@ dependencies {
     implementation ("androidx.core:core-ktx:${Versions.androidCore}")
     implementation ("androidx.lifecycle:lifecycle-runtime-ktx:${Versions.lifecycleRuntime}")
     implementation ("androidx.activity:activity-compose:${Versions.activityCompose}")
-    implementation (platform("androidx.compose:compose-bom:2022.10.00"))
+    implementation (platform("androidx.compose:compose-bom:${Versions.composeBom}"))
     implementation ("androidx.compose.ui:ui")
     implementation ("androidx.compose.ui:ui-graphics")
     implementation ("androidx.compose.ui:ui-tooling-preview")
@@ -57,8 +59,31 @@ dependencies {
     testImplementation ("junit:junit:${Versions.jUnit}")
     androidTestImplementation ("androidx.test.ext:junit:${Versions.androidJUnit}")
     androidTestImplementation ("androidx.test.espresso:espresso-core:${Versions.espressoCore}")
-    androidTestImplementation (platform("androidx.compose:compose-bom:2022.10.00"))
+    androidTestImplementation (platform("androidx.compose:compose-bom:${Versions.composeBom}"))
     androidTestImplementation ("androidx.compose.ui:ui-test-junit4")
     debugImplementation ("androidx.compose.ui:ui-tooling")
     debugImplementation ("androidx.compose.ui:ui-test-manifest")
+
+    //Dagger Hilt
+    implementation("com.google.dagger:hilt-android:${Versions.daggerHilt}")
+    kapt("com.google.dagger:hilt-android-compiler:${Versions.daggerHilt}")
+
+    //Navigation
+    implementation ("androidx.navigation:navigation-compose:${Versions.navigationCompose}")
+
+    //Retrofit
+    implementation ("com.squareup.retrofit2:retrofit:${Versions.retrofit}")
+    implementation ("com.squareup.retrofit2:converter-gson:${Versions.retrofit}")
+
+    //OkHttp
+    implementation ("com.squareup.okhttp3:logging-interceptor:${Versions.okhttp}")
+
+    //Room
+    implementation ("androidx.room:room-runtime:${Versions.room}")
+    kapt("androidx.room:room-compiler:${Versions.room}")
+    implementation ("androidx.room:room-ktx:${Versions.room}")
+}
+
+kapt {
+    correctErrorTypes = true
 }

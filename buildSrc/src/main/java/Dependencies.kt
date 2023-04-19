@@ -23,4 +23,10 @@ object Versions {
     const val jUnit = "4.13.2"
     const val androidJUnit = "1.1.5"
     const val espressoCore = "3.5.1"
+    const val composeBom = "2022.10.00"
+    const val daggerHilt = "2.44"
+    const val navigationCompose = "2.5.3"
+    const val retrofit = "2.9.0"
+    const val okhttp = "4.10.0"
+    const val room = "2.4.3"
 }
