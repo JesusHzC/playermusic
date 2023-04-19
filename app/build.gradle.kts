@@ -4,15 +4,15 @@ plugins {
 }
 
 android {
-    namespace = "com.github.jesushzc.musicplayer"
-    compileSdk = 33
+    namespace = ProjectConfiguration.applicationId
+    compileSdk = ProjectConfiguration.compileSdk
 
     defaultConfig {
-        applicationId = "com.github.jesushzc.musicplayer"
-        minSdk = 27
-        targetSdk = 33
-        versionCode = 1
-        versionName = "1.0"
+        applicationId = ProjectConfiguration.applicationId
+        minSdk = ProjectConfiguration.minSdk
+        targetSdk = ProjectConfiguration.targetSdk
+        versionCode = ProjectConfiguration.buildVersionCode
+        versionName = ProjectConfiguration.buildVersionName
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables.useSupportLibrary = true
