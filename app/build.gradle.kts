@@ -19,15 +19,33 @@ android {
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables.useSupportLibrary = true
     }
-
     buildTypes {
         release {
             isMinifyEnabled = true
             isShrinkResources = true
+            isDebuggable = false
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
+
+            buildConfigField("String", "BASE_URL", "\"${Secrets.baseUrl}\"")
+            buildConfigField("String", "API_KEY", "\"${Secrets.apiKey}\"")
+            buildConfigField("String", "HOST_URL", "\"${Secrets.host}\"")
+        }
+        debug {
+            isMinifyEnabled = false
+            isShrinkResources = false
+            isDebuggable = true
+            proguardFiles(
+                getDefaultProguardFile("proguard-android-optimize.txt"),
+                "proguard-rules.pro"
+            )
+
+            buildConfigField("String", "BASE_URL", "\"${Secrets.baseUrl}\"")
+            buildConfigField("String", "API_KEY", "\"${Secrets.apiKey}\"")
+            buildConfigField("String", "HOST_URL", "\"${Secrets.host}\"")
+
         }
     }
     compileOptions {
@@ -39,6 +57,7 @@ android {
     }
     buildFeatures {
         compose = true
+        buildConfig = true
     }
     composeOptions {
         kotlinCompilerExtensionVersion = "1.3.2"
