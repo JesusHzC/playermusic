@@ -13,5 +13,14 @@ object ProjectConfiguration {
     const val targetSdk = 33
 }
 
-object Libary {
+object Versions {
+    const val androidApplication = "8.0.0"
+    const val androidLibrary = "8.0.0"
+    const val androidCore = "1.8.0"
+    const val kotlin = "1.7.20"
+    const val lifecycleRuntime = "2.3.1"
+    const val activityCompose = "1.5.1"
+    const val jUnit = "4.13.2"
+    const val androidJUnit = "1.1.5"
+    const val espressoCore = "3.5.1"
 }
